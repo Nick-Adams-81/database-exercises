@@ -19,18 +19,13 @@ WHERE last_name LIKE '%q%'
   AND last_name NOT LIKE '%qu%'
 GROUP BY last_name;
 
-SELECT COUNT(last_name), last_name FROM employees
+SELECT COUNT(*) AS 'Number of names', last_name FROM employees
 WHERE last_name LIKE '%q%'
   AND last_name NOT LIKE '%qu%'
-GROUP BY last_name;
+GROUP BY last_name
+ORDER BY COUNT(*) DESC;
 
-SELECT COUNT(last_name), last_name
-FROM employees
-WHERE last_name LIKE '%q%'
-  AND last_name NOT LIKE '%qu%'
-GROUP BY last_name;
-
-SELECT COUNT(gender), gender
+SELECT COUNT(*) AS 'Num employees', gender
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
 GROUP BY gender;
