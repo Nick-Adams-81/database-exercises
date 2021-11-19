@@ -9,4 +9,5 @@ SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY 
 
 SELECT * FROM employees WHERE last_name LIKE 'E%E' ORDER BY emp_no;
 
-SELECT * FROM employees WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
+SELECT * FROM employees WHERE last_name LIKE 'E%E' ORDER BY emp_no DESC;
+
