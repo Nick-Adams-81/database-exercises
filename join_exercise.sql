@@ -22,12 +22,12 @@ WHERE manager.to_date = '9999-01-01'
 ORDER BY dept_name;
 
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS department_manager, d.dept_name
-FROM employees as e
-         JOIN dept_emp as employee_no
+FROM employees AS e
+         JOIN dept_emp AS employee_no
               ON employee_no.emp_no = e.emp_no
-         JOIN dept_manager as manager
+         JOIN dept_manager AS manager
               ON manager.emp_no = employee_no.emp_no
-         JOIN departments as d
+         JOIN departments AS d
               ON manager.dept_no = d.dept_no
 WHERE e.gender = 'F'
 LIMIT 10;
@@ -51,11 +51,11 @@ GROUP BY titles.title;
 
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS department_manager, d.dept_name, s.salary
 FROM employees as e
-         JOIN dept_emp as employee_no
+         JOIN dept_emp AS employee_no
               ON employee_no.emp_no = e.emp_no
-         JOIN dept_manager as manager
+         JOIN dept_manager AS manager
               ON manager.emp_no = employee_no.emp_no
-         JOIN departments as d
+         JOIN departments AS d
               ON manager.dept_no = d.dept_no
          JOIN salaries AS s
               ON manager.emp_no = s.emp_no
