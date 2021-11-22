@@ -49,7 +49,7 @@ WHERE dept.dept_name = 'Customer Service'
   AND de.to_date = '9999-01-01'
 GROUP BY titles.title;
 
-SELECT CONCAT(e.first_name, ' ', e.last_name) AS department_manager, d.dept_name
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS department_manager, d.dept_name, s.salary
 FROM employees as e
          JOIN dept_emp as employee_no
               ON employee_no.emp_no = e.emp_no
@@ -57,7 +57,9 @@ FROM employees as e
               ON manager.emp_no = employee_no.emp_no
          JOIN departments as d
               ON manager.dept_no = d.dept_no
-WHERE manager.to_date = '9999-01-01'
+         JOIN salaries AS s
+              ON manager.emp_no = s.emp_no
+WHERE s.to_date = '9999-01-01' AND manager.to_date = '9999-01-01'
 ORDER BY dept_name;
 
 SELECT COUNT(*)
