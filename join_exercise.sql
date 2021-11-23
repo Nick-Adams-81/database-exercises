@@ -39,7 +39,7 @@ WHERE dept_name = 'Customer Service'
 LIMIT 10;
 
 
-SELECT title, COUNT(titles.emp_no)
+SELECT title, COUNT(titles.emp_no) AS 'Count'
 FROM titles
          JOIN dept_emp AS de
               ON titles.emp_no = de.emp_no
@@ -50,7 +50,7 @@ WHERE dept.dept_name = 'Customer Service'
   AND de.to_date = '9999-01-01'
 GROUP BY titles.title;
 
-SELECT CONCAT(e.first_name, ' ', e.last_name) AS department_manager, d.dept_name, s.salary
+SELECT d.dept_name AS 'Department', CONCAT(e.first_name, ' ', e.last_name) AS Department_manager, s.salary
 FROM employees as e
          JOIN dept_emp AS employee_no
               ON employee_no.emp_no = e.emp_no
