@@ -21,7 +21,7 @@ FROM employees as e
 WHERE manager.to_date = '9999-01-01'
 ORDER BY dept_name;
 
-SELECT CONCAT(e.first_name, ' ', e.last_name) AS department_manager, d.dept_name
+SELECT d.dept_name, CONCAT(e.first_name, ' ', e.last_name) AS department_manager
 FROM employees AS e
          JOIN dept_emp AS employee_no
               ON employee_no.emp_no = e.emp_no
@@ -30,7 +30,8 @@ FROM employees AS e
          JOIN departments AS d
               ON manager.dept_no = d.dept_no
 WHERE e.gender = 'F'
-LIMIT 10;
+  AND manager.to_date = '9999-01-01'
+ORDER BY dept_name;
 
 SELECT *
 FROM departments
@@ -59,12 +60,10 @@ FROM employees as e
               ON manager.dept_no = d.dept_no
          JOIN salaries AS s
               ON manager.emp_no = s.emp_no
-WHERE s.to_date = '9999-01-01' AND manager.to_date = '9999-01-01'
+WHERE s.to_date = '9999-01-01'
+  AND manager.to_date = '9999-01-01'
 ORDER BY dept_name;
 
-SELECT COUNT(*)
-FROM current_dept_emp
-WHERE dept_no = 'd009'
 
 
 
